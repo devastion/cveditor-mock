@@ -64,10 +64,8 @@ export default function AddExperience() {
   const handleHighlight = () =>
     values.description
       .replace(/\n$/gi, "\n\n")
-      .replace(
-        /I've done many projects/gi,
-        "<mark data-tip='test'><span title='Thanks for hovering!' class='tooltip'>$&</span></mark>"
-      );
+      .replace(/I've done /gi, "<mark title='test'><span>$&</span></mark>")
+      .replace(/many projects/gi, "<mark title='test2'><span>$&</span></mark>");
   return (
     <div className={styles.inner}>
       <form onSubmit={handleSubmit} id="add-experience">
@@ -149,13 +147,29 @@ export default function AddExperience() {
           />
 
           <div className={styles.backdrop}>
-            <div
-              contentEditable
-              onMouseOver={() => setPop(true)}
-              onFocus={() => setPop(true)}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: handleHighlight() }}
-            />
+            <Popover
+              isOpen={pop}
+              positions={["bottom", "top", "left", "right"]} // preferred positions by priority
+              content={
+                <div className={styles.tooltip}>
+                  <div className={styles.heading}>
+                    <h1>Content Improvement</h1>
+                    <div className={styles.ignore}>
+                      <input onClick={() => setPop(false)} type="checkbox" />
+                      <h2>Ignore</h2>
+                    </div>
+                  </div>
+                  <p>{data[1]?.message}</p>
+                </div>
+              }>
+              <div
+                contentEditable
+                onMouseOver={(e) => console.log(e.currentTarget)}
+                onFocus={() => setPop(true)}
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: handleHighlight() }}
+              />
+            </Popover>
           </div>
         </div>
       </form>
