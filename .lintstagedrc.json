@@ -1,0 +1,4 @@
+{
+  "*": "prettier -u --write",
+  "*.tsx": "yarn eslint --fix"
+}

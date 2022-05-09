@@ -1,0 +1,21 @@
+.header {
+  height: 3.75rem;
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+
+  .nav {
+    .a {
+      font-family: "Inter", sans-serif;
+      color: #232528;
+      font-size: 0.875rem;
+      text-decoration: none;
+      margin-left: 1rem;
+
+      @media (min-width: 1280px) {
+        margin-left: 2rem;
+      }
+    }
+  }
+}

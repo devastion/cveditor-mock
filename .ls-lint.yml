@@ -1,0 +1,7 @@
+ls:
+  src/**/*:
+    .dir: lowercase | PascalCase
+    .tsx: lowercase | PascalCase
+
+ignore:
+  - src/__tests__
