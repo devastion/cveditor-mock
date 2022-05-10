@@ -108,7 +108,7 @@ export default function AddExperience() {
             data-testid="title-label"
             htmlFor="title"
             className={`${styles.label} ${styles.title}`}>
-            EnhanCV
+            CV Editor Mock
           </label>
         </div>
 
