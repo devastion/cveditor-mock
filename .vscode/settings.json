@@ -1,6 +1,4 @@
 {
-  "auto-close-tag.SublimeText3Mode": true,
-  "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
   "typescript.referencesCodeLens.enabled": true,
   "typescript.referencesCodeLens.showOnAllFunctions": true,
   "eslint.alwaysShowStatus": true,
