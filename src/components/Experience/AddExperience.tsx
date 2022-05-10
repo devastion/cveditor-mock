@@ -97,6 +97,7 @@ export default function AddExperience() {
 
         <div className={`${styles.input} ${styles.company}`}>
           <input
+            data-testid="company-input"
             className={`${styles.field} ${styles.company}`}
             type="text"
             name="company"
@@ -107,6 +108,7 @@ export default function AddExperience() {
             onChange={handleChange}
           />
           <label
+            data-testid="company-label"
             htmlFor="company"
             className={`${styles.label} ${styles.company}`}>
             Company Name
@@ -115,6 +117,7 @@ export default function AddExperience() {
         <div className={styles.info}>
           <div className={`${styles.input} ${styles.info}`}>
             <input
+              data-testid="date-input"
               className={`${styles.field} ${styles.info}`}
               type="date"
               name="date"
@@ -122,12 +125,16 @@ export default function AddExperience() {
               placeholder=" "
               onChange={handleChange}
             />
-            <label htmlFor="date" className={`${styles.label} ${styles.info}`}>
+            <label
+              data-testid="date-label"
+              htmlFor="date"
+              className={`${styles.label} ${styles.info}`}>
               Date Period
             </label>
           </div>
           <div className={`${styles.input} ${styles.info}`}>
             <input
+              data-testid="city-input"
               className={`${styles.field} ${styles.info}`}
               type="text"
               name="city"
@@ -138,7 +145,10 @@ export default function AddExperience() {
               onChange={handleChange}
             />
 
-            <label htmlFor="city" className={`${styles.label} ${styles.info}`}>
+            <label
+              data-testid="city-label"
+              htmlFor="city"
+              className={`${styles.label} ${styles.info}`}>
               Sofia, BG
             </label>
           </div>
