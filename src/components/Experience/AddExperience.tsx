@@ -156,6 +156,7 @@ export default function AddExperience() {
 
         <div className={styles.wrapper}>
           <input
+            data-testid="description-input"
             className={`${styles.field} ${styles.description} ${styles.textarea}`}
             maxLength={200}
             name="description"
@@ -172,11 +173,15 @@ export default function AddExperience() {
               isOpen={pop}
               positions={["bottom", "top", "left", "right"]} // preferred positions by priority
               content={
-                <div className={styles.tooltip}>
+                <div data-testid="popover" className={styles.tooltip}>
                   <div className={styles.heading}>
                     <h1>Content Improvement</h1>
                     <div className={styles.ignore}>
-                      <input onClick={() => setPop(false)} type="checkbox" />
+                      <input
+                        data-testid="popover-ignore"
+                        onClick={() => setPop(false)}
+                        type="checkbox"
+                      />
                       <h2>Ignore</h2>
                     </div>
                   </div>
