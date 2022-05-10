@@ -5508,6 +5508,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"harmony-reflect@npm:^1.4.6":
+  version: 1.6.2
+  resolution: "harmony-reflect@npm:1.6.2"
+  checksum: 2e5bae414cd2bfae5476147f9935dc69ee9b9a413206994dcb94c5b3208d4555da3d4313aff6fd14bd9991c1e3ef69cdda5c8fac1eb1d7afc064925839339b8c
+  languageName: node
+  linkType: hard
+
 "has-ansi@npm:^2.0.0":
   version: 2.0.0
   resolution: "has-ansi@npm:2.0.0"
@@ -5768,6 +5775,15 @@ __metadata:
   version: 1.1.0
   resolution: "icss-replace-symbols@npm:1.1.0"
   checksum: 24575b2c2f7e762bfc6f4beee31be9ba98a01cad521b5aa9954090a5de2b5e1bf67814c17e22f9e51b7d798238db8215a173d6c2b4726ce634ce06b68ece8045
+  languageName: node
+  linkType: hard
+
+"identity-obj-proxy@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "identity-obj-proxy@npm:3.0.0"
+  dependencies:
+    harmony-reflect: ^1.4.6
+  checksum: 97559f8ea2aeaa1a880d279d8c49550dce01148321e00a2102cda5ddf9ce622fa1d7f3efc7bed63458af78889de888fdaebaf31c816312298bb3fdd0ef8aaf2c
   languageName: node
   linkType: hard
 
@@ -6596,6 +6612,15 @@ __metadata:
     slash: ^3.0.0
     strip-bom: ^4.0.0
   checksum: e3a01bbbf6ffb28174303e2d2c043fb766b178a6354186dcbe8e8cc8e706162ecfb2b6f49d71ec7b2459dc6701979ffeee003fdf153492b9e74a846cf11af5d8
+  languageName: node
+  linkType: hard
+
+"jest-scss-transform@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "jest-scss-transform@npm:1.0.2"
+  peerDependencies:
+    babel-jest: ^24.8.0
+  checksum: 86b4616cd25cdd0a7f00317cbc5bd428aaea49202dfbaa3be3875050acb8b16d8cae70ce82420abd7dbddb6f4d2bbc1419db614d1f2814c0bc5834e72b5f8fc2
   languageName: node
   linkType: hard
 
@@ -8157,8 +8182,10 @@ __metadata:
     eslint-plugin-react: ^7.29.4
     eslint-plugin-react-hooks: ^4.5.0
     husky: ^8.0.1
+    identity-obj-proxy: ^3.0.0
     jest: ^28.1.0
     jest-environment-jsdom: ^28.1.0
+    jest-scss-transform: ^1.0.2
     lint-staged: ^12.4.1
     markdownlint-cli: ^0.31.1
     msw: ^0.39.2

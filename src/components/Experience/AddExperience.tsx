@@ -171,12 +171,12 @@ export default function AddExperience() {
               }>
               <div
                 contentEditable
-                onFocus={() => inputRef.current.focus()}
-                onMouseOver={(e) =>
+                onFocus={() => inputRef.current?.focus()}
+                onMouseOver={(e: any) =>
                   (e.target.innerText === "I've done " &&
-                    setMessage(data[1]?.message)) ||
+                    setMessage(data[1]?.message || "")) ||
                   (e.target.innerText === "many projects" &&
-                    setMessage(data[0]?.message))
+                    setMessage(data[0]?.message || ""))
                 }
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: handleHighlight() }}
