@@ -13,3 +13,4 @@ export const label: string;
 export const title: string;
 export const tooltip: string;
 export const wrapper: string;
+export const textarea: string;

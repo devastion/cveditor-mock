@@ -125,9 +125,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   -webkit-text-size-adjust: none;
 
   .wrapper,
-  .backdrop {
-    width: auto;
-    height: 5rem;
+  .backdrop,
+  .textarea {
+    width: 100%;
+    height: auto;
     overflow: hidden;
   }
 
@@ -140,8 +141,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     white-space: pre-wrap;
     word-wrap: break-word;
     background-color: transparent;
-    color: #384347;
-    z-index: 3;
+    position: absolute;
+    color: transparent;
+    z-index: 2;
     margin: 0;
     padding: 0;
 
@@ -150,13 +152,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
   }
 
+  .textarea {
+    position: absolute;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    line-height: 1.1875rem;
+    font-size: 0.8125rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: #384347;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    outline: 2px solid rgba(63, 156, 220, 0.1);
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+    &:focus {
+      outline: 2px solid rgba(63, 156, 220, 0.3);
+    }
+  }
+
   mark {
     color: #a35653;
     background-color: rgba(235, 87, 87, 0.33);
-  }
-
-  textarea:focus {
-    outline: 2px solid rgba(63, 156, 220, 0.3);
   }
 }
 
@@ -169,6 +192,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 6px;
   font-size: 0.75rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 
   h1 {
     font-weight: 700;

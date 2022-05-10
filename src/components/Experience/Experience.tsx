@@ -18,7 +18,7 @@ export default function Experience({
   city,
   description,
 }: Props) {
-  // ! FIX IT
+  // ! FIX TYPES
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const edit = (e: any): void => {
     e.currentTarget.contentEditable = true;
