@@ -76,6 +76,7 @@ export default function AddExperience() {
       <form onSubmit={handleSubmit} id="add-experience">
         <div className={`${styles.input} ${styles.title}`}>
           <input
+            data-testid="title-input"
             className={`${styles.field} ${styles.title}`}
             value={values.title}
             onChange={handleChange}
@@ -86,7 +87,10 @@ export default function AddExperience() {
             maxLength={57}
             placeholder=" "
           />
-          <label htmlFor="title" className={`${styles.label} ${styles.title}`}>
+          <label
+            data-testid="title-label"
+            htmlFor="title"
+            className={`${styles.label} ${styles.title}`}>
             EnhanCV
           </label>
         </div>
