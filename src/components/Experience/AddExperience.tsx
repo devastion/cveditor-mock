@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import { Popover } from "react-tiny-popover";
@@ -20,7 +22,7 @@ export default function AddExperience() {
   const [values, setValues] = React.useState<Props>(initialValues);
   const [pop, setPop] = React.useState<boolean>(false);
   const [message, setMessage] = React.useState<string>("");
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = React.useRef<HTMLTextAreaElement>(null);
   const data = [
     {
       range: [10, 23],
@@ -57,20 +59,35 @@ export default function AddExperience() {
       alert("Fill all fields, please!");
     }
   };
-  // const handleTextArea: React.ChangeEventHandler<HTMLTextAreaElement> = (
-  //   e
-  // ): void => {
-  //   setValues({
-  //     ...values,
-  //     description: e.currentTarget.textContent,
-  //   });
-  // };
+  const handleTextArea: React.ChangeEventHandler<HTMLTextAreaElement> = (
+    e
+  ): void => {
+    const { value } = e.target;
+
+    setValues({
+      ...values,
+      description: value,
+    });
+  };
+
+  const handlePopover: React.MouseEventHandler<HTMLDivElement> = (e): void => {
+    const { innerText }: any = e.target;
+    if (innerText === "I've done ") {
+      setMessage(data[1]?.message || "");
+      setPop(true);
+    }
+    if (innerText === "many projects") {
+      setMessage(data[0]?.message || "");
+      setPop(true);
+    }
+  };
   // const handleKeyPress: React.KeyboardEventHandler<KeyboardEvent> = (e): void => {};
   const handleHighlight = () =>
     values.description
       .replace(/\n$/gi, "\n\n")
       .replace(/I've done /gi, "<mark><span>$&</span></mark>")
       .replace(/many projects/gi, "<mark><span>$&</span></mark>");
+
   return (
     <div className={styles.inner}>
       <form onSubmit={handleSubmit} id="add-experience">
@@ -155,23 +172,29 @@ export default function AddExperience() {
         </div>
 
         <div className={styles.wrapper}>
-          <input
-            data-testid="description-input"
+          <p className={styles.note}>
+            Note: Type &quot;I&apos;ve done many projects&quot;
+          </p>
+          <textarea
+            rows={3}
             className={`${styles.field} ${styles.description} ${styles.textarea}`}
             maxLength={200}
             name="description"
             id="description"
             placeholder="Description"
             value={values.description}
-            onChange={handleChange}
-            onFocus={() => setPop(true)}
+            onChange={handleTextArea}
             ref={inputRef}
           />
 
-          <div className={styles.backdrop}>
+          <div
+            onClick={() => inputRef.current?.focus()}
+            className={styles.backdrop}>
             <Popover
               isOpen={pop}
-              positions={["bottom", "top", "left", "right"]} // preferred positions by priority
+              align="start"
+              positions={["bottom", "top", "left", "right"]}
+              onClickOutside={(): void => setPop(false)}
               content={
                 <div data-testid="popover" className={styles.tooltip}>
                   <div className={styles.heading}>
@@ -189,14 +212,8 @@ export default function AddExperience() {
                 </div>
               }>
               <div
-                contentEditable
-                onFocus={() => inputRef.current?.focus()}
-                onMouseOver={(e: any) =>
-                  (e.target.innerText === "I've done " &&
-                    setMessage(data[1]?.message || "")) ||
-                  (e.target.innerText === "many projects" &&
-                    setMessage(data[0]?.message || ""))
-                }
+                data-testid="description-input"
+                onMouseOver={handlePopover}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: handleHighlight() }}
               />

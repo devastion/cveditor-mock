@@ -124,11 +124,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: translateZ(0);
   -webkit-text-size-adjust: none;
 
+  .note {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+    font-size: 0.8125rem;
+    color: #384347;
+    opacity: 0.5;
+  }
+
   .wrapper,
   .backdrop,
   .textarea {
     width: 100%;
-    height: auto;
+    height: 5rem;
     overflow: hidden;
   }
 
@@ -163,6 +172,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     position: absolute;
     background-color: transparent;
     border: none;
+    resize: none;
     color: #384347;
     z-index: 2;
     margin: 0;
